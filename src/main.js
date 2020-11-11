@@ -14,12 +14,12 @@ Vue.config.productionTip = false
 Vue.use(VueRouter);
 
 const routes = [
-  { path: '/blog',              component: Blog},
-  { path: '/home',              component: LastArticles},
-  { path: '/formulario',        component: Formulario},
-  { path: '/mi-componente',     component: MiComponente},
-  { path: '/pagina',            component: Pagina},
-  { path: '/',                  component: LastArticles},
+  { path: '/blog',              component: Blog },
+  { path: '/home',              component: LastArticles },
+  { path: '/formulario',        component: Formulario },
+  { path: '/mi-componente',     component: MiComponente },
+  { path: '/pagina/:id?',        component: Pagina,  name: 'pagina', },
+  { path: '/',                  component: LastArticles },
 ]
 
 const router = new VueRouter({

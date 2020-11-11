@@ -22,7 +22,11 @@
                         <router-link to="/formulario">Formulario</router-link>
                     </li>
                     <li>
-                        <router-link to="/pagina">Pagina 1</router-link>
+                        <!-- Primera forma pasar paramtros -->
+                        <!-- <router-link to="/pagina/olmedo">Pagina 1</router-link> -->
+
+                        <!-- Segunda forma pasar parametros -->
+                        <router-link :to="{ name: 'pagina', params: { id: 'Olmedo'}}">Pagina 1</router-link>
                     </li>
                     <li>
                         <router-link to="/mi-componente">Pagina 2</router-link>
