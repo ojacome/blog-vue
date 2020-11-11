@@ -6,6 +6,7 @@ import Blog from './components/Blog.vue';
 import Formulario from './components/Formulario.vue';
 import Pagina from './components/Pagina.vue';
 import MiComponente from './components/MiComponente.vue';
+import NoPageFound from './components/shared/NoPageFound.vue';
 
 
 
@@ -14,12 +15,13 @@ Vue.config.productionTip = false
 Vue.use(VueRouter);
 
 const routes = [
+  { path: '/',                  component: LastArticles },
   { path: '/blog',              component: Blog },
   { path: '/home',              component: LastArticles },
   { path: '/formulario',        component: Formulario },
   { path: '/mi-componente',     component: MiComponente },
-  { path: '/pagina/:id?',        component: Pagina,  name: 'pagina', },
-  { path: '/',                  component: LastArticles },
+  { path: '/pagina/:id?',       component: Pagina,  name: 'pagina', },
+  { path: '*',                  component: NoPageFound },
 ]
 
 const router = new VueRouter({
