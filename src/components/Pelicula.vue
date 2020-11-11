@@ -13,6 +13,7 @@
         </span>
         <a href="#">Leer más</a>
 
+        <input type="button" value="Marcar favorita" @click="favorita( pelicula )">
         <div class="clearfix"></div>
     </article>
 </template>
@@ -24,6 +25,14 @@ export default {
     name: 'Pelicula',
 
 
-    props: ['pelicula']
+    props: ['pelicula'],
+
+    methods: {
+        favorita( pelicula ){
+            console.log(pelicula);
+
+            this.$emit('favorita', pelicula)
+        }
+    }
 }
 </script>

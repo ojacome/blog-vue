@@ -5,11 +5,14 @@
             <section id="content">
                 <h2 class="subheader">Películas</h2>
                 
+                <div v-if="favorita">
+                    <h3>Película favorita: {{ favorita.title }}</h3>
+                </div>
                 <!--Listado articulos-->
                 <div id="articles">
                     <!-- v-for="pelicula in peliculas" v-bind:key="pelicula.title" -->
                     <div v-for="pelicula in peliculas" v-bind:key="pelicula.title">
-                        <Pelicula :pelicula="pelicula"/>
+                        <Pelicula :pelicula="pelicula" v-on:favorita="marcarFavorita"/>
                     </div>        
 
                 </div>            
@@ -34,8 +37,16 @@ export default {
         Pelicula,
         Sidebar,        
     },
+    methods: {
+        marcarFavorita( pelicula ) {
+            this.favorita = pelicula;
+            // console.log(pelicula);
+            // alert('se ha ejcutado el evento en el padre')
+        }
+    },
     data() {
         return {
+            favorita: null,
             peliculas: [
                 { title: 'batman vs superman', year: 2017, image: 'https://www.cinemascomics.com/wp-content/uploads/2020/06/snyder-cut-batman-vs-superman-960x560.jpg' },
                 { title: 'bob esponja', year: 2020, image: 'https://media.elestimulo.com/2019/11/Bob-Esponja-pel%C3%ADcula--1012x572.jpg' },
