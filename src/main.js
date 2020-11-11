@@ -6,6 +6,7 @@ import Blog from './components/Blog.vue';
 import Formulario from './components/Formulario.vue';
 import Pagina from './components/Pagina.vue';
 import MiComponente from './components/MiComponente.vue';
+import Peliculas from './components/Peliculas.vue';
 import NoPageFound from './components/shared/NoPageFound.vue';
 
 
@@ -21,6 +22,7 @@ const routes = [
   { path: '/formulario',        component: Formulario },
   { path: '/mi-componente',     component: MiComponente },
   { path: '/pagina/:id?',       component: Pagina,  name: 'pagina', },
+  { path: '/peliculas',         component: Peliculas,  name: 'peliculas', },
   { path: '*',                  component: NoPageFound },
 ]
 

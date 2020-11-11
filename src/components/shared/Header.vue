@@ -13,23 +13,23 @@
             <nav id="menu">
                 <ul>
                     <li>
-                        <router-link to="/home">Inicio</router-link>
+                        <router-link active-class="active"  to="/home">Inicio</router-link>
                     </li>
                     <li>
-                        <router-link to="/blog">Blog</router-link>
+                        <router-link active-class="active"  to="/blog">Blog</router-link>
                     </li>
                     <li>
-                        <router-link to="/formulario">Formulario</router-link>
+                        <router-link active-class="active"  to="/formulario">Formulario</router-link>
                     </li>
                     <li>
                         <!-- Primera forma pasar paramtros -->
-                        <!-- <router-link to="/pagina/olmedo">Pagina 1</router-link> -->
+                        <!-- <router-link active-class="active"  to="/pagina/olmedo">Pagina 1</router-link> -->
 
                         <!-- Segunda forma pasar parametros -->
-                        <router-link :to="{ name: 'pagina', params: { id: 'Olmedo'}}">Pagina 1</router-link>
+                        <router-link  active-class="active" :to="{ name: 'pagina', params: { id: 'Olmedo'}}">Pagina 1</router-link>
                     </li>
                     <li>
-                        <router-link to="/mi-componente">Pagina 2</router-link>
+                        <router-link active-class="active"  to="/peliculas">Películas</router-link>
                     </li>                            
                 </ul>
             </nav>
