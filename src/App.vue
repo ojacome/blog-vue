@@ -3,7 +3,8 @@
     <Header/>
     <Slider/>
     <div class="center">
-      <LastArticles/>
+      <!-- <LastArticles/> -->
+      <router-view></router-view>
       <Sidebar/>
     </div>
     <div class="clearfix"></div>
@@ -17,7 +18,6 @@
 import Header from './components/shared/Header.vue';
 import Slider from './components/shared/Slider.vue';
 import Sidebar from './components/shared/Sidebar.vue';
-import LastArticles from './components/LastArticles.vue';
 import Footer from './components/shared/Footer.vue';
 
 export default {
@@ -25,8 +25,7 @@ export default {
   components: {
     Header,
     Slider,
-    Sidebar,
-    LastArticles,
+    Sidebar,    
     Footer
   }
 }
