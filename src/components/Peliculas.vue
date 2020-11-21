@@ -6,7 +6,7 @@
                 <h2 class="subheader">Películas</h2>
                 
                 <div v-if="favorita">
-                    <h3>Película favorita: {{ favorita.title }}</h3>
+                    <h3>Película favorita: {{ favorita.title | mayusculas }}</h3>
                 </div>
                 <!--Listado articulos-->
                 <div id="articles">
@@ -42,6 +42,20 @@ export default {
             this.favorita = pelicula;
             // console.log(pelicula);
             // alert('se ha ejcutado el evento en el padre')
+        }
+    },
+    // computed: {
+    //     peliculasMayusculas(){
+    //         var peliculasMod = this.peliculas;
+    //         for(var i = 0; i < this.peliculasMod.length; i++){
+    //             this.peliculasMod[i].title = this.peliculasMod[i].title.toUpperCase(); 
+    //         }
+    //         return peliculasMod;
+    //     }
+    // },
+    filters:{
+        mayusculas(value){
+            return value.toUpperCase();
         }
     },
     data() {

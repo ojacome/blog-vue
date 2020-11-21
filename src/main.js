@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import Vuelidate from 'vuelidate';
 import App from './App.vue'
 import VueRouter from 'vue-router';
 import LastArticles from './components/LastArticles.vue';
@@ -14,6 +15,7 @@ import NoPageFound from './components/shared/NoPageFound.vue';
 Vue.config.productionTip = false
 
 Vue.use(VueRouter);
+Vue.use(Vuelidate);
 
 const routes = [
   { path: '/',                  component: LastArticles },
