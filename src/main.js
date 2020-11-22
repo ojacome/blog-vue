@@ -10,6 +10,7 @@ import MiComponente from './components/MiComponente.vue';
 import Peliculas from './components/Peliculas.vue';
 import Article from './components/Article.vue';
 import CreateArticle from './components/CreateArticle.vue';
+import EditArticle from './components/EditArticle.vue';
 import NoPageFound from './components/shared/NoPageFound.vue';
 import Search from './components/shared/Search.vue';
 import Redirect from './components/shared/Redirect.vue';
@@ -27,7 +28,8 @@ Vue.use(require('vue-moment'), { moment });
 
 const routes = [
   { path: '/',                  component: LastArticles },
-  { path: '/create-article/',    component: CreateArticle , name: 'create'},
+  { path: '/create-article/',   component: CreateArticle , name: 'create'},
+  { path: '/edit-article/:id',  component: EditArticle , name: 'edit'},
   { path: '/article/:id',       component: Article , name: 'article'},
   { path: '/blog',              component: Blog },
   { path: '/home',              component: LastArticles },

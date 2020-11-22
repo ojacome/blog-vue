@@ -10,7 +10,7 @@ import Swal from 'sweetalert';
 
 
 export default {
-    name: 'CreateArticle',
+    name: 'EditArticle',
     components: {
         Sidebar
     },
@@ -19,7 +19,7 @@ export default {
             submitted: false,
             article: new ArticleModel('', '', null, ''),
             file: '',
-            isEdit: false
+            isEdit: true
         }
     },
     validations:{
@@ -31,6 +31,10 @@ export default {
                 required
             }
         }
+    },
+    mounted() {
+        var articleId = this.$route.params.id;
+        this.getArticle(articleId);
     },
     methods: { 
         fileChange(){
@@ -44,8 +48,8 @@ export default {
                 return false;
             }
             else{                
-                var url = Global.url + '/articles';
-                Axios.post(url, this.article)
+                var url = Global.url + '/articles/article/' + this.article._id;
+                Axios.put(url, this.article)
                 .then( res => {
     
                     if(res.data.status === 'success'){
@@ -61,29 +65,42 @@ export default {
 
                                 console.log(res);
                                 Swal(
-                                    'Artículo creado',
-                                    'Artículo creado correctamente',
+                                    'Artículo actualizado',
+                                    'Artículo actualizado correctamente',
                                     'success'
                                 )
                                 
-                                this.$router.push('/blog');
+                                this.$router.push('/article/'+this.article._id);
                             }).catch( err => {
                                 console.log(err.response.data);
                             })
                         }
                         else{
                             Swal(
-                                'Artículo creado',
-                                'Artículo creado correctamente',
+                                'Artículo actualizado',
+                                'Artículo actualizado correctamente',
                                 'success'
                                 )
-                            this.$router.push('/blog');
+                            this.$router.push('/article/'+this.article._id);
                         }                        
                     }
                 }).catch( err => {
                     console.log(err.response.data);
                 })
             }
+        },
+        getArticle(articleId){
+            var url = Global.url + '/articles/article/'+ articleId;
+            Axios.get(url)
+            .then( res => {
+
+                if(res.data.status === 'success'){
+                    this.article = res.data.article
+                    console.log(this.article);
+                }
+            }).catch( err => {
+                console.log(err);
+            })
         }
     }
 }
